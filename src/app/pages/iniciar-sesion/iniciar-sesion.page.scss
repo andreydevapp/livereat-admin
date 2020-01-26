@@ -1,0 +1,66 @@
+.label-olvido{
+    cursor: pointer;
+    color: cornflowerblue;
+    position: absolute;
+    right: 3%;
+    margin-top: 10px !important;
+}
+
+.label-registrate{
+    cursor: pointer;
+    color: cornflowerblue;
+    position: absolute;
+    right: 3%;
+}
+
+
+.img-fondo{
+    background-image: url('../../../assets/bg-01.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.fondo-negro{
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    background-color: transparent;
+
+}
+
+.center {
+    text-align: center;
+    position: absolute;
+    top: 50%; /* Buscamos el centro horizontal (relativo) del navegador */
+    width: 100%; /* Definimos el ancho del objeto a centrar */
+    height: 400px; /* Definimos el alto del objeto a centrar */
+    margin-top: -200px; /* Restamos la mitad de la altura del objeto con un margin-top */
+}
+
+.btn-face{
+    background-color: white !important;
+    color: white !important;
+}
+
+ion-label{
+    letter-spacing: 2px;
+}
+
+ion-item{
+    border-radius: 30px;
+}
+
+ion-button {
+ border-radius: 25px;   
+}
+
+ion-input{
+    letter-spacing: 1px;
+}

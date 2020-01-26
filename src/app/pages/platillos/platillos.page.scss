@@ -1,0 +1,103 @@
+span{
+    font-size: 20px;
+}
+
+.despues{
+    color: #3880ff;;
+    font-size: 20px;
+}
+
+.img{
+    width: 100%;
+    max-height: 100%;
+    min-height: 225px;
+}
+
+.barra-verde{
+    width: 75%;
+    padding-top: 5px;
+    background-color: #383a3e;
+    padding-left: 10px;
+    position: absolute;
+    margin-top: -16px;
+    color: white;
+    cursor: pointer;
+    text-align: left !important;
+    z-index: 10;
+    font-size: 23px;
+}
+
+.btn{
+    border: medium none;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.4;
+    padding: 6px 12px;
+    transition: all 0.25s linear 0s;
+    -webkit-transition: all 0.25s linear 0s;
+    -moz-transition: all 0.25s linear 0s;
+    -ms-transition: all 0.25s linear 0s;
+    -o-transition: all 0.25s linear 0s;
+    background-color:  #3880ff;
+    color: #FFFFFF;
+}
+
+.btn-shop{
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    background-color: #3880ff;
+    color: white;
+    position: absolute;
+    right: 2%;
+    margin-top: -25px;
+    font-size: 26px;
+    -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.39);
+    box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.39);
+    transition: 100ms ease;
+}
+
+.btn-shop:active {
+    width: 50px;
+    height: 50px;
+    transition: 100ms ease;
+}
+
+.icon-shop{
+    margin-top: 15px;
+}
+
+.border{
+    border-bottom: 3px solid gray;
+}
+
+ion-avatar{
+    height: 50px;
+    width: 50px;
+}
+
+.contenedor{
+    background-color: rgb(240, 240, 240);
+}
+
+ion-card{
+    background-color: white;
+}
+
+ion-label{
+    font-size: 20px;
+}
+
+.buscador{
+    font-size: 25px;
+    color: white;
+    transition: 200ms ease;
+}
+
+.buscador-active{
+    font-size: 30px;
+    color: white;
+    transition: 200ms ease;
+}

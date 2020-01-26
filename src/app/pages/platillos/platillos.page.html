@@ -1,0 +1,43 @@
+
+<ion-content>
+
+    <ion-card>
+        <div class="barra-verde">
+            <span><ion-icon name="restaurant"></ion-icon> platillo.nombre</span>
+          </div>
+          <div class="btn-shop text-center" (click)='validarComida(platillo._id,platillo.nombre,platillo.imagen,platillo.precio,platillo.tiempo)'>
+            <ion-icon class="shop-cart icon-shop" name="cart"></ion-icon>
+          </div>
+          <br>
+          <br>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <div class="body">
+                  platillo.descripcion
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <div class="body">
+                  <span >Precio:</span><br>
+                  <span ><strong>₡ platillo.precio </strong></span>
+                </div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="body">
+                  <span >
+                    Tiempo estimado:
+                  </span>
+                  <br>
+                  <ion-icon name="time"></ion-icon> platillo.tiempo MIN
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-card>
+    
+</ion-content>

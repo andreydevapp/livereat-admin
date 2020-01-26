@@ -1,0 +1,43 @@
+<ion-header id='header'>
+  <ion-toolbar color="tertiary">
+    <ion-title>mapa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs>
+  <ion-tab-bar slot="top" class="">
+
+    <ion-tab-button  tab="mapa" >
+      <span>
+        <ion-icon name="restaurant"></ion-icon>
+        <ion-label>Mapa</ion-label>
+      </span>
+    </ion-tab-button>
+
+    <ion-tab-button tab="home">
+        <span>
+          <ion-icon name="contacts"></ion-icon>
+          <ion-label>Mi cuenta</ion-label>
+        </span>
+    </ion-tab-button>
+
+    <ion-tab-button tab="speakers" (click)="tab_activate('chat')">
+      
+        <span>
+          <ion-icon name="contacts"></ion-icon>
+          <ion-label>Chat</ion-label>
+        </span>
+      
+    </ion-tab-button>
+
+    <ion-tab-button tab="speakers" (click)="tab_activate('chat')">
+      
+        <span>
+          <ion-icon name="contacts"></ion-icon>
+          <ion-label>Carrito</ion-label>
+        </span>
+      
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

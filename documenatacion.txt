@@ -1,0 +1,8 @@
+npm install ngx-socket-io
+ionic cordova plugin add cordova-sqlite-storage
+npm install --save @ionic-native/facebook
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="2655486301350730" --variable APP_NAME="app-angela"
+
+ionic cordova plugin add cordova-plugin-geolocation
+
+'CREATE TABLE IF NOT EXIST user (id text primary key, idWS text, token text, imgUrl text, email text, logueadoConFb boolean, opc text )'

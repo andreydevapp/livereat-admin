@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>registrate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+  <div class="img-fondo">
+    <div class="fondo-negro p-1">
+
+      <div class="p-2">
+
+        <br color="dark">
+
+        <ion-item color="tertiary">
+          <ion-label  position='floating'>Nombre</ion-label>
+          <ion-input  [(ngModel)]="nombre" name='nombre' type="text"></ion-input>
+        </ion-item>
+
+        <br>
+        <ion-item  color="tertiary">
+          <ion-label position='floating'>Apellido</ion-label>
+          <ion-input [(ngModel)]="apellido" name='apellido' type="text"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item  color="tertiary">
+          <ion-label position='floating'>Cedula</ion-label>
+          <ion-input [(ngModel)]="cedula" name='cedula' type="number"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item  color="tertiary">
+          <ion-label position='floating'>Correo</ion-label>
+          <ion-input [(ngModel)]="correo" name='correo' type="email"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item  color="tertiary">
+          <ion-label position='floating'>Contraseña</ion-label>
+          <ion-input [(ngModel)]="pass" name='pass' type="password"></ion-input>
+        </ion-item>
+        
+        <br color="dark">
+    
+        <ion-item color="dark">
+          <ion-label >
+            Imagen de  perfil
+          </ion-label>
+          <ion-avatar slot="end" class="avatar">
+              <input type="file" accept="image/*" class="d-none" (change)='onImgSelected($event)' #imgInput>
+            <div class="text-center w-100 img-negocio">
+              <img [src]="photoSelected || '../../../assets/icon/user.png'" alt="noimage" class="w-100" (click)='imgInput.click()'>
+            </div>
+          </ion-avatar>
+        </ion-item>
+        
+
+
+        <br color="dark">
+    
+        <ion-button expand="full" color="primary" (click)="validar()">Registrarse</ion-button>
+    
+      </div>
+      
+    </div>
+  </div>   
+
+</ion-content>
