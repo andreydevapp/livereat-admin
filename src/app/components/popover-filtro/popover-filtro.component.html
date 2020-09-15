@@ -1,0 +1,49 @@
+<ion-list>
+  <div class="p-2">
+    <h5>
+      Filtros de búsqueda
+    </h5>
+  </div>
+
+  
+  <ion-item detail (click)="opcion('fecha',-1)">
+    <ion-label [ngClass]="{'active': encabezado === 'fecha' && tipoFiltro === -1}">
+      Más recientes
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'fecha' && tipoFiltro === 1}" detail (click)="opcion('fecha',1)">
+    <ion-label>
+      Más antiguos
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'ventas' && tipoFiltro === -1}" detail (click)="opcion('ventas',-1)">
+    <label>
+      Más vendidos
+    </label>
+  </ion-item>
+  <ion-item detail [ngClass]="{'active': encabezado === 'ventas' && tipoFiltro === 1}" (click)="opcion('ventas',1)">
+    <ion-label>
+      Menos Vendidos
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'estado' && tipoFiltro === -1}" detail (click)="opcion('estado',-1)">
+    <ion-label>
+      En Stock
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'estado' && tipoFiltro === 1}" detail (click)="opcion('estado',1)">
+    <ion-label>
+      Agotado
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'accesibilidad' && tipoFiltro === -1}" detail (click)="opcion('accesibilidad',-1)">
+    <ion-label>
+      Publico
+    </ion-label>
+  </ion-item>
+  <ion-item [ngClass]="{'active': encabezado === 'accesibilidad' && tipoFiltro === 1}" detail (click)="opcion('accesibilidad',1)">
+    <ion-label>
+      Oculto
+    </ion-label>
+  </ion-item>
+</ion-list>

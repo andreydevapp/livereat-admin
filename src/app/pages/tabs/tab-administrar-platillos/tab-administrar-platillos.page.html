@@ -1,0 +1,65 @@
+<ion-header #headerPlatillos id='headerPlatillos' no-border>
+  <ion-toolbar color="primary">
+
+    <ion-buttons *ngIf="!buscar" slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="!buscar" class="custom-tittle" >
+      
+      Administrar Platillos
+      
+    </ion-title>
+
+    <ion-searchbar *ngIf="buscar" placeholder="Buscar" slot="start"></ion-searchbar>
+
+    <ion-buttons *ngIf="!buscar" slot="end">
+      <ion-button (click)="activarBuscador()">
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons *ngIf="buscar" slot="end">
+      <ion-button (click)="activarBuscador()">
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-tabs #tabsPlatillos id='tabsPlatillos' >
+  <ion-tab-bar class="tab" slot="top">
+
+    <ion-tab-button [ngClass]="{'btn-left-active': tab_left_active === true && tab_rihgt_active === false}" class="btn-left p-2" tab="mis-platillos" (click)="tab_activate('mis-platillos')">
+      
+      <span>
+        <ion-label>
+          <strong>
+            Mis platillos
+          </strong>
+        </ion-label>
+      </span>
+        
+    </ion-tab-button>
+
+    <ion-tab-button [ngClass]="{'btn-right-active': tab_rihgt_active === true &&  tab_left_active === false }" class="btn-right p-2" routerLink="/tab-platillos/crear-platillo" (click)="tab_activate('administrar-platillos')">
+      
+      <span>
+        <ion-label>
+          <strong>
+            Crear Platillo
+          </strong>
+        </ion-label>
+      </span>
+        
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+
+
+
+
+

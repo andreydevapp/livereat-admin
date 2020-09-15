@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class=" w-100">
+
+    <div class="p-2 text-center bg-white w-100">
+
+      <div class="p-4 text-center">
+        <h1 class="logo">
+          <strong>
+            Livereat
+          </strong>
+          <div class="subrayado"></div>
+        </h1>
+        <img class="logo img" src="../../../assets/foodRoket.png" alt="">
+        <div class="p-1"></div>
+        <label class="lbl1">¡Crea tu cuenta gratis!</label><br>
+        <label class="lbl2">Prueba todas las funciones durante 15 días</label>
+      </div>
+
+      <div class="p-2"></div>
+      <ion-item color="light">
+        <label class="lbl1">
+          Imagen del negocio
+        </label>
+        <ion-avatar slot="end" class="avatar">
+            <input type="file" accept="image/*" class="d-none" (change)='onImgSelected($event)' #imgInput>
+          <div class="text-center w-100 img-negocio">
+            <img [src]="photoSelected || '../../../assets/franchise.png'" alt="noimage" class="w-100" (click)='imgInput.click()'>
+          </div>
+          <div *ngIf="!photoSelected" class="img-add p-2">
+        </div>
+        </ion-avatar>
+      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item  color="light">
+            <ion-label position="floating">Nombre de tu negocio</ion-label>
+            <ion-input [(ngModel)]="negocio" name='negocio' type="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  color="light">
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input [(ngModel)]="correo" name='correo' type="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item  color="light">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input minlength="8" [(ngModel)]="pass" name='pass' type="password"></ion-input>
+          </ion-item>
+        </ion-col> 
+        <ion-col size="12">
+          <ion-item  color="light">
+            <ion-label position="floating">Confirmar Contraseña</ion-label>
+            <ion-input mode="md" minlength="8" [(ngModel)]="pass2" name='pass2' type="password"></ion-input>
+          </ion-item>
+        </ion-col> 
+      </ion-row>
+      <br>
+      <div class="p-2">
+        <button (click)="validar()" class="btn-plan btn-paypal">
+          Ingresar
+        </button>
+      </div>
+    </div>
+
+    
+
+    <div class="p-2 center">
+      
+      
+    </div>
+    
+  </div>   
+
+
+</ion-content>

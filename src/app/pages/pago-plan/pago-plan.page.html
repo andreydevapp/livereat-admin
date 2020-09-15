@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="datosCargados === true">Plan {{plan.res.nombrePlan}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <br>
+
+  <div *ngIf="datosCargados" class="bg-azul p-3 text-center">
+    <ion-icon name="cart"></ion-icon> ¡Has seleccionado el Plan {{plan.res.nombrePlan}}!
+  </div>
+
+  <br>
+
+  <ion-row no-padding>
+    <ion-col no-padding size='4'>
+      <div class="row1 text-center col-celeste w-100">
+        Frecuencia de cobro
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="row1 text-center col-celeste-light w-100">
+        Período
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="row1 text-center col-celeste w-100">
+        Precio
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding>
+    <ion-col no-padding size='4'>
+      <div class="col-gris w-100 p-2">
+        <div class="p-1"></div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultChecked2" [(ngModel)]="yearCheck">
+          <label class="custom-control-label lbl-table lbl-gris lblImportant" for="defaultChecked2">Pago anual</label>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class=" col-gris-light lbl-table w-100 p-1">
+        <label class="lbl-gris-light">
+          12 meses
+        </label><br>
+        <label class="lbl-verde">
+          10% descuento
+        </label>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class=" col-gris lbl-table w-100 p-1">
+        <label *ngIf="datosCargados" class="lbl-gris">
+          USD ${{plan.res.pagoAnual.precio.precioConAhorro}}
+        </label><br>
+        <label class="lbl-verde">
+          Ahorras USD $33.00
+        </label>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding>
+    <ion-col no-padding size='4'>
+      <div class="col-gris w-100 p-2">
+        <div class="p-1"></div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultChecked2" [(ngModel)]="biannualCheck">
+          <label class="custom-control-label lbl-table lbl-gris lblImportant" for="defaultChecked2">Pago semestral</label>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris-light lbl-table w-100 p-1">
+        <label class="lbl-gris-light">
+          6 meses
+        </label><br>
+        <label class="lbl-verde">
+          10% descuento
+        </label>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris lbl-table w-100 p-1">
+        <label *ngIf="datosCargados" class="lbl-gris">
+          USD ${{plan.res.pagoSemestral.precio.precioConAhorro}}
+        </label><br>
+        <label class="lbl-verde">
+          Ahorras USD $10.00
+        </label>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding>
+    <ion-col no-padding size='4'>
+      <div class="col-gris w-100 p-2">
+        <div class="p-1"></div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="defaultChecked3"  [(ngModel)]="monthCheck">
+          <label class="custom-control-label lbl-table lbl-gris lblImportant" for="defaultChecked3">Pago mensual</label>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris-light lbl-table w-100 p-1">
+        <label class="lbl-gris-light">
+          1 mes
+        </label><br>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris lbl-table w-100 p-2">
+        <label *ngIf="datosCargados" class="lbl-gris">
+          USD ${{plan.res.pagoMensual.precio.precioConAhorro}}
+        </label><br>
+      </div>
+    </ion-col>
+  </ion-row> 
+
+  <ion-row no-padding>
+    <ion-col no-padding size='4'>
+      <div class="col-gris w-100 p-2">
+        <div class="p-1"></div>
+        <label class="custom-control-label lbl-table lbl-gris lblImportant">
+          <strong>
+            Total a pagar
+          </strong>
+        </label>
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris-light lbl-table w-100 p-1">
+      </div>
+    </ion-col>
+    <ion-col no-padding size='4'>
+      <div class="col-gris lbl-table w-100 p-2 text-center">
+        <div class="p-1"></div>
+        <label class="lbl-gris">
+          <strong>
+            USD $8.00
+          </strong>
+        </label><br>
+      </div>
+    </ion-col>
+  </ion-row> 
+
+
+  <br>
+
+  <div class="p-2">
+    <button (click)="proSelected()" class="btn-plan btn-paypal">
+      Pagar Con PayPal
+    </button>
+    <div class="p-3"></div>
+    <button (click)="proSelected()" class="btn-plan btn-blanco">
+      Pagar con tarjeta de crédito
+    </button>
+  </div>
+
+  <br>
+</ion-content>

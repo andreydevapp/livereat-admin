@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modificar {{platillo.tipo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+  <div class="">
+
+    <div class="p-2 w-100 text-center">
+      <label class="w-100 text-center">
+        {{tituloImagen}}
+      </label><br>
+      <ion-card-content>
+        <form action="" (submit)='uploadPhoto()'>
+          <input type="file" class="d-none" (change)='onImgSelected($event)' #imgInput>
+          <div>
+            <img *ngIf="!photoSelected" [src]="uri+platillo.imagen" alt="noimage" class="img" (click)='imgInput.click()'>
+            <img *ngIf="photoSelected" [src]="photoSelected" alt="noimage" class="img-Selected" (click)='imgInput.click()'>
+          </div>
+          <div *ngIf="!photoSelected" class="img-add p-2">
+          </div>
+        </form>
+      </ion-card-content>
+    </div>
+
+    <hr>
+    <ion-item lines="none" (click)='putNombre()' class="w-100" button>
+      <label slot="start">
+        <strong>Nombre:</strong> {{nombre}} 
+      </label>
+    </ion-item>
+    <ion-item lines="none" (click)='putPrecio()' class="w-100" button>
+      <label slot="start">
+        <strong>Precio:</strong> {{precio}}
+      </label>
+    </ion-item>
+    <ion-item lines="none" (click)='putDescripcion()' class="w-100" button>
+      <label slot="start">
+        <strong>Descripcion:</strong> {{descripcion}} 
+      </label>
+    </ion-item>
+
+   
+  </div>
+
+</ion-content>
+

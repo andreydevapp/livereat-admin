@@ -1,0 +1,137 @@
+<ion-content color="medium" [scrollEvents]="true" (ionScroll)="onScroll($event)">
+ 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  
+  <div class="bg-white p-3" >
+
+    <ion-toolbar>
+      <ion-segment color="secondary" (ionChange)="segmentChanged($event)" value="Platillo">
+        <ion-segment-button value="Platillo" class="p-2">
+          <ion-label class="tipo">Platillos</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Bebida" class="p-2">
+          <ion-label class="tipo">Bebidas</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+  </div>
+
+  
+
+  <ion-item lines="none" color="primary">
+    <ion-label slot="start" class="tipo">
+      Tipo / {{tipo}}
+    </ion-label>
+
+    <ion-buttons color="primary" slot="end">
+      <ion-button (click)="presentarPopoverFiltro($event)">
+        <ion-icon class="filtro" name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-item>
+
+  <ion-card class="p-2 bg-white" *ngIf="!hayPlatillos">
+    {{mensajeAlert}}
+  </ion-card>
+  
+  <div class="w-100 bg-white animated" *ngFor="let platillo of platillos.platillos">
+    
+    <ion-fab class="btn-opc" (click)="presentarPopover($event, platillo._id, platillo.nombre, platillo.imagen,platillo.estado,platillo.accesibilidad)">
+      <ion-fab-button color="secondary">
+        <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <img class="w-100" [src]="platillo.imagen" alt="">
+    <div class="barra-azul">
+      <ion-item lines="none" color="primary">
+        <ion-label>
+            {{platillo.nombre}}
+        </ion-label>
+      </ion-item>
+    </div>
+    <br>
+    <ion-row>
+      <ion-col size="6" class="text-center">
+        <label class="precio">
+          <h5>
+            <strong>Precio: ₡ {{platillo.precio}}</strong> 
+          </h5>
+        </label>
+      </ion-col>
+      <ion-col size="6" class="text-center">
+        <label>
+           {{platillo.createAt | date:'dd/MM/yyyy h:mm '}}
+        </label>
+      </ion-col>
+    </ion-row>
+    
+    <div class="text-left w-100 desc">
+      <label>
+        {{platillo.descripcion}}
+      </label>
+    </div>
+
+    <div class="p-2">
+      <div class="hr"></div>
+    </div>
+
+    <ion-row>
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label>
+          Estado
+        </label>
+      </ion-col>
+
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label>
+          Accesibilidad
+        </label>
+      </ion-col>
+      
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label>
+          Ventas
+        </label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label class="text-success" *ngIf="platillo.estado === 1">
+          En Stock
+        </label>
+        <label class="text-danger" *ngIf="platillo.estado === 0">
+          Agotado
+        </label>
+      </ion-col>
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label class="text-success" *ngIf="platillo.accesibilidad === 1">
+          Publico
+        </label>
+        <label class="text-danger" *ngIf="platillo.accesibilidad === 0">
+          Privado
+        </label>
+      </ion-col>
+      
+      <ion-col class="text-center btn-publicacion" size="4">
+        <label class="azul">
+          {{platillo.ventas | number}}
+        </label>
+      </ion-col>
+    </ion-row>
+    <div class="p-2">
+      <div class="footer"></div>
+    </div>
+    <div class="br"></div>
+
+  </div>
+  
+  <br>
+</ion-content>

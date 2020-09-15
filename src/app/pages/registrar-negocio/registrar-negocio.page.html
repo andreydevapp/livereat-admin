@@ -1,0 +1,191 @@
+<ion-content>
+
+  <div class="bg-celeste w-100 p-2 text-center">
+    <label class="robo300">!Hola Livereat te damos la benvenida¡</label>
+  </div>
+
+  <br>
+
+  <div class="p-2">
+    <div class="card bg-white">
+      <div class="p-3 text-center bg-white w-100">
+        <label class="roboto200">Cuéntanos más sobre ti y tu negocio para que Alegra trabaje especialmente para ti</label>
+      </div>
+      <ion-item color="light">
+        <ion-label  position='floating'>Tu nombre Completo</ion-label>
+        <ion-input  [(ngModel)]="nombre" name='nombre' type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de identificación</ion-label>
+        <ion-select [(ngModel)]="tipoCedula" mode="ios" multiple="false" placeholder="Selecciona una opción" cancelText="Cancelar" okText="Aceptar">
+          <ion-select-option value="Fisica">Fisica</ion-select-option>
+          <ion-select-option value="Juridica">Juridica</ion-select-option>
+          <ion-select-option value="Residencia">Residencia</ion-select-option>
+          <ion-select-option value="Dimex">Dimex</ion-select-option>
+          <ion-select-option value="NITE">NITE</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light">
+        <ion-label  position='floating'>Tu Cedula de Identidad</ion-label>
+        <ion-input  [(ngModel)]="cedula" name='cedula' type="text"></ion-input>
+      </ion-item>
+      <ion-item color="light">
+        <ion-label  position='floating'>Telefono del Negocio</ion-label>
+        <ion-input  [(ngModel)]="telefono" name='telefono' type="number"></ion-input>
+      </ion-item>
+      <div class="p-3"></div>
+      <label class="text-center">Ubicación del negocio</label>
+      <br>
+      <ion-item>
+        <ion-label>Provincia</ion-label>
+        <ion-select (ionChange)="provinciaSelected($event)" mode="ios" multiple="false" placeholder="Selecciona una opción" cancelText="Cancelar" okText="Aceptar">
+          <ion-select-option [value]="provincia.id_provincia" *ngFor="let provincia of provincias">{{provincia.Nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="provinciaSelect.length > 0 && idProvincia > 0">
+        <ion-label>Cantón</ion-label>
+        <ion-select (ionChange)="cantonSelected($event)" mode="ios" multiple="false" placeholder="Selecciona una opción" cancelText="Cancelar" okText="Aceptar">
+          <ion-select-option [value]="canton.id_canton" *ngFor="let canton of cantones">{{canton.Nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="distritos.length > 0 && idProvincia > 0 && idCanton !== ''">
+        <ion-label>Distrito</ion-label>
+        <ion-select (ionChange)="distritoSelected($event)" mode="ios" multiple="false" placeholder="Selecciona una opción" cancelText="Cancelar" okText="Aceptar">
+          <ion-select-option [value]="distrito.id_distrito" *ngFor="let distrito of distritos">{{distrito.Nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item color="light">
+        <ion-label  position='floating'>La Dirección del Negocio</ion-label>
+        <ion-input  [(ngModel)]="direccion" name='direccion' type="text"></ion-input>
+      </ion-item>
+
+      <div class="p-3"></div>
+    </div>
+    
+  </div>
+
+  <br>
+
+  <div class="p-2"> 
+    <div class="card bg-white roboto200 p-3">
+      <label class="text-center lbl">
+        Registrar la ubicación de tu negocio
+      </label>
+      <div class="p-1"></div>
+      <label class="lbl">
+        La ubicación del negocio se registrara deacuerdo a tu ubicación actual.
+      </label>
+      <label class="lbl">
+        Asegurate de estar en tu negocio.
+      </label>
+      <div class="p-1"></div>
+      <ion-item lines="none" color="primary">
+        <label>
+          Obtener ubicación
+        </label>
+        <ion-spinner name='lines-small' *ngIf="cargandoGeo"></ion-spinner>
+        <ion-toggle color="light" slot="end" (ionChange)='getGeo()'></ion-toggle>
+      </ion-item>
+      
+      <br>
+  
+      <ion-item *ngIf="mostrarMapa" color="light">
+        <div id='map' *ngIf="mostrarMapa" ></div>
+      </ion-item>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="p-2">
+
+    <div class="card bg-white p-3">
+      <ion-item lines="none" color="primary" [disabled]="agregarZona" (click)="mostrarAgregarZona()">
+        <label>Agregar zona de entrega</label>
+        <ion-icon slot="end" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </ion-item>
+      <div class="p-1"></div>
+      <div *ngIf="zonas.length == 0" class="badge  text-wrap">
+        <label class="roboto200 text-dark">
+          Puedes omitir este paso y agregar el precio de los envios en otro momento
+        </label>
+      </div>
+
+      <div *ngIf="agregarZona" class="p-2">
+        <ion-item>
+          <ion-label class="roboto200 text-dark" position="floating">Nombre de la zona</ion-label>
+          <ion-input class="roboto200 text-dark" [(ngModel)]="nomZona" name='nomZona' type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="roboto200 text-dark" position="floating">Precio de envio</ion-label>
+          <ion-input [(ngModel)]="precioZona" name='precioZona' type="number"></ion-input>
+        </ion-item>
+        <div class="p-2"></div>
+        <div class="w-100">
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <div class="p-1">
+                <button class="btn-close w-75 bg-danger" (click)="ocultarAgregarZona()">
+                  <label class="roboto200 text-white">
+                    Cancelar
+                  </label>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col no-padding>
+              <div class="p-1">
+                <button (click)="agregarNuevaZona()" class="btn-add w-75">
+                  <label class="roboto200 text-white">
+                    Agregar
+                  </label>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+      <div class="titulo text-center roboto200 text-dark" *ngIf="zonas.length > 0">
+        <br>
+        Zonas de entrega
+        <br>
+        <br>
+      </div>
+  
+      <ion-row *ngIf="zonas.length > 0">
+        <ion-col class="text-center bg-light" size="6">
+          <div class="p-1"></div>
+          <p class="roboto200 text-dark">
+            Lugar
+          </p>
+        </ion-col>
+        <ion-col class="text-center bg-light" size="6">
+          <div class="p-1"></div>
+          <p class="roboto200 text-dark">
+            Precio
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let zona of zonas">
+        <ion-col class="text-center" size="6">
+          <p class="roboto200 text-dark">{{zona.lugar}}</p>
+        </ion-col>
+        <ion-col class="text-center" size="6">
+          <p class="roboto200 text-dark">{{zona.precio}}</p>
+        </ion-col>
+      </ion-row>
+    </div>
+    
+  </div>
+
+  <div class="p-3">
+    <button class="btn-next" (click)="validar()">
+      INICIAR
+    </button>
+  </div>
+
+</ion-content>
+

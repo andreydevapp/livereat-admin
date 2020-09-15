@@ -1,0 +1,30 @@
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+  <ul class="list-group bg-imagen">
+
+
+    <div *ngFor="let chat of chatsObs" >
+
+      <ion-item  (click)="modificarMensajesVistos(chat._id)">
+        <ion-avatar slot="start">
+          <img [src]="uri+chat.imagen">
+        </ion-avatar>
+        <div>
+          <li class="w-100">
+            <strong>{{ chat.nombre }}</strong> 
+            <div *ngIf="chat.mensajesSinVer > 0" class="conectado" >
+              <ion-badge class="badge">{{chat.mensajesSinVer}}</ion-badge>
+            </div>
+          </li>
+          <li class="w-100 mensaje">
+            {{ chat.ultimoMensaje }}
+          </li>
+        </div>
+      </ion-item>
+      
+    </div>
+  
+</ul>
+
+</ion-content>

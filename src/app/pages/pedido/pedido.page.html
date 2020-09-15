@@ -1,0 +1,179 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>pedido de {{pedido.cliente.nombreUsuario}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+    
+
+  <ion-card color="light">
+    
+    <div class="p-3 text-center ">
+      <div class=" borde-azul bg-white">
+        <div class="p-1"></div>
+        <strong>
+          <label class="color-azul">
+            <h5>
+              Estado del pedido
+            </h5>
+          </label>
+        </strong>
+      </div> 
+    </div>
+
+    <div class="p-3 note">
+      <label>
+        <h6><li>Actualiza el estado en que se encuentra el pedido para que tu cliente sepa en el estado en que se encuentra su pedido</li></h6>
+      </label>
+    </div>
+    <hr>
+    <div class="w-100 text-center">
+      <div class="estado-platillo p-1">
+        <img *ngIf="!aceptado" class="img-estado" src="../../../assets/accept.png" alt="">
+        <img *ngIf="aceptado" class="img-estado" src="../../../assets/acceptCheck.png" alt="">
+      </div>
+      <div class="estado-platillo p-1">
+        <br>
+        <ion-icon class="linea" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </div>
+      <div class="estado-platillo p-1">
+        <img *ngIf="!preparacion" class="img-estado" src="../../../assets/preparacion.png" alt="">
+        <img *ngIf="preparacion" class="img-estado" src="../../../assets/preparacioncheck.png" alt="">
+      </div>
+      <div class="estado-platillo p-1">
+        <br>
+        <ion-icon class="linea" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </div>
+      <div class="estado-platillo p-1">
+        <img *ngIf="!enviado" class="img-estado" src="../../../assets/enviado.png" alt="">
+        <img *ngIf="enviado" class="img-estado" src="../../../assets/enviadocheck.png" alt="">
+      </div>
+      <div class="estado-platillo p-1">
+        <br>
+        <ion-icon class="linea" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </div>
+      <div class="estado-platillo p-1">
+        <img *ngIf="!entregado" class="img-estado" src="../../../assets/entregado.png" alt="">
+        <img *ngIf="entregado" class="img-estado" src="../../../assets/entregadocheck.png" alt="">
+      </div>
+    </div>
+
+    <ion-list>
+      <ion-item (click)="validarEstado('aceptado')">
+        <label>Pedido aceptado</label>
+        <ion-checkbox  slot="end" [disabled]="aceptado" [(ngModel)]="aceptado"></ion-checkbox>
+      </ion-item>
+      <ion-item (click)="validarEstado('preparacion')">
+        <label>Pedido en preparación</label>
+        <ion-checkbox  slot="end" [disabled]="preparacion" [(ngModel)]="preparacion"></ion-checkbox>
+      </ion-item>
+      <ion-item (click)="validarEstado('enviado')">
+        <label>Pedido enviado</label>
+        <ion-checkbox  slot="end" [disabled]="enviado" [(ngModel)]="enviado"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none" (click)="validarEstado('entregdo')">
+        <label>Pedido entregado</label>
+        <ion-checkbox  slot="end" [disabled]="entregado" [(ngModel)]="entregado"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <div class="p-2"></div>
+  </ion-card>
+
+  <ion-card color="light">
+
+    <div class="p-3">
+      <div class=" borde-azul text-center bg-white">
+        <div class="p-1"></div>
+        <strong>
+          <label class="color-azul">
+            <h5>
+              Platillos ordenados
+            </h5>
+          </label>
+        </strong>
+      </div> 
+    </div>
+
+    <ion-item *ngFor="let platillo of pedido.platillos">
+      <ion-thumbnail slot="start">
+        <img [src]="platillo.imagen">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{platillo.nombrePlatillo}}</h3>
+        <p><li>Cantidad: {{platillo.cantidad}}</li></p>
+        <p><li>Precio ₡ {{platillo.precio | number}}</li></p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card color="light">
+
+    <div class="p-3 text-center">
+      <div class="borde-azul bg-white">
+        <div class="p-1"></div>
+        <strong>
+          <label class="color-azul">
+            <h5>
+              Datos del pedido
+            </h5>
+          </label>
+        </strong>
+      </div> 
+    </div>
+
+    <ion-grid>
+  
+      <ion-row class="p-2 text-center bg-light">
+        <ion-col size="6">
+          <label class="text-info">Pedido realizado el:</label>
+        </ion-col>
+        <ion-col size="6">
+          <label class="text-info">{{pedido.createAt | date:'dd/MM/yyyy h:mm '}}</label>
+        </ion-col> 
+      </ion-row>
+
+      <ion-row class="p-2 text-center bg-white text-white">
+        <ion-col size="6">
+          <label class="text-info">IVA:</label>
+        </ion-col>
+        <ion-col size="6">
+          <label class="text-info">₡ {{iva}}</label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="p-2 text-center bg-light">
+        <ion-col size="6">
+          <label class="text-info">Precio sin IVA:</label>
+        </ion-col>
+        <ion-col size="6">
+          <label class="text-info">₡ {{pedido.totalSinIva | number}}</label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="p-2 text-center bg-white">
+        <ion-col size="6">
+          <label class="text-info">Precio final:</label>
+        </ion-col>
+        <ion-col size="6">
+          <label class="text-info">₡ {{pedido.totalFinal | number}}</label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="p-2 text-center bg-light">
+        <ion-col size="12" class="text-center">
+          <ion-button expand="full" color="danger">
+            Cancelar pedido
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+  <br>
+
+</ion-content>

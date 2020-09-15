@@ -1,0 +1,50 @@
+ion-content {
+    --background: url("../../../../../assets/bg.PNG") 0 0/100% 100% no-repeat !important;
+}
+
+label{
+    font-size: 18px !important;
+}
+
+.img-new{
+    position: absolute;
+    background-image: url('../../../../../assets/new.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 50px !important;
+    height: 50px !important;
+    top: 0;
+    right: 0;
+}
+
+.img-entregado{
+    position: absolute;
+    background-image: url('../../../../../assets/correct.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10000;
+    top: 3%;
+    right: 3%;
+}
+
+.img-cancelado{
+    position: absolute;
+    background-image: url('../../../../../assets/cancel.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 30px !important;
+    height: 30px !important;
+    top: 2%;
+    right: 3%;
+}
+
+.footer{
+    min-height: 10em;
+    height: auto;
+}
+

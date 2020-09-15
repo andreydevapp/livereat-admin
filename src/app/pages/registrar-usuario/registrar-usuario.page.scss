@@ -1,0 +1,101 @@
+ion-content {
+    --background: url("../../../assets/bg.PNG") 0 0/100% 100% no-repeat !important;
+}
+
+ion-toolbar {
+    --ion-background-color: #171718;
+    background: #171718; 
+    color: white;
+}
+
+ion-label{
+    font-weight: 400 !important;
+    size: 18px !important;
+    color: #8492a6 !important;
+    font-family:Roboto, sans-serif !important;
+}
+
+.logo{
+    display: inline-block;
+    font-size: 40px;
+    color: black;
+}
+
+.img{
+  width: 40px;
+}
+
+.subrayado{
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 50%;
+}
+
+label{
+    line-height: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+ion-item{
+    border-radius: 30px;
+}
+
+.label-olvido{
+    cursor: pointer;
+    color: cornflowerblue;
+    position: absolute;
+    right: 1%;
+}
+
+.avatar{
+    width: 150px;
+    height: 150px;
+}
+
+.vercion-negra{
+    background-color: black;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.lbl1{
+    font-weight: 400;
+    size: 18px;
+    color: #8492a6;
+    font-family:Roboto, sans-serif;
+}
+
+.lbl2{
+    font-weight: 400;
+    size: 14px;
+    color: rgb(68,209,234);
+    font-family:Roboto, sans-serif;
+}
+
+.btn-paypal{
+    border-radius: 10px;
+    margin: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    line-height: 19px;
+    font-size: 19px;
+    color: white;
+    width: 100%;
+    background-color: rgb(68,209,234) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    -webkit-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+    box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+}

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../classes/usuario';
 import { Storage } from '@ionic/storage';
 import { HerramientasService } from './herramientas.service';
+import { Router } from '@angular/router';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +11,36 @@ import { HerramientasService } from './herramientas.service';
 
 export class UserService {
 
-  public usuario: Usuario = null;
+  public usuario: Usuario;
 
-  constructor(private herramientas:HerramientasService,private storage: Storage) {
-    
+  private loadData = new Subject<any>();
+  sendloadData(opc) {
+    this.loadData.next({ loadData: true });
   }
 
-  guardarUsuario(res){
+  getloadData(): Observable<any> {
+    return this.loadData.asObservable();
+  }
+
+  constructor(private herramientas:HerramientasService,
+    private storage: Storage,
+    private router:Router) {}
+
+  async guardarUsuario(res){
     const user:any = res;
-    this.usuario = new Usuario(user.nombre, user.id, user.token, user.imgUrl ,user.email);
+    this.usuario = await new Usuario(
+      //usuario
+      user.nombreUsuario, user._id, user.tokenTem, user.email,
+      //negocio
+      user.nombreNegocio, user.imagen, user.imagenMin, user.location.coordinates[0], user.location.coordinates[1], user.tipoPlan, user.active
+    );
+
+    console.log('usuario',this.usuario);
     
-    this.guardarStorage();
-    console.log(user.imgUrl);
+    await this.guardarStorage();
     //this.wsService.loginWS( user.nombre, user.id, user.imgUrl,'cliente');
     //console.log(this.wsService.usuario);
+    return 'usuario guardado';
   }
 
   async guardarStorage(){
@@ -38,14 +56,18 @@ export class UserService {
     var user:boolean = await this.storage.get('usuario').then((usuario) => {
       if (usuario !== null) {
         this.usuario = JSON.parse(usuario);
-        this.herramientas.presentAlert('ya existe un usuario');
         return true;
       }else{
-        this.herramientas.presentAlert('no existe un usuario');
         return false;
       }
     });
     return user;
+  }
+
+  async eliminarUsuario(){
+    this.storage.remove('usuario').then((usuario) => {
+      this.router.navigate(['/iniciar-sesion']);
+    });
   }
 
   getUsuario() {

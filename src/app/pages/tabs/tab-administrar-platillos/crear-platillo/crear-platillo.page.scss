@@ -1,0 +1,221 @@
+a{
+    color: #3171e0 !important;
+}
+
+h6{
+    color: #3171e0 !important;
+}
+
+.nom-negocio{
+    color: #44d1ea;
+    cursor: pointer;
+    text-decoration: none;
+    font-family:Helvetica, Arial, sans-serif;
+    line-height:19.32px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.body{
+    border-left-color:rgb(255, 166, 49);
+    border-left-style:solid;
+    border-left-width:3px;
+    color:rgb(29, 33, 41);
+    direction:ltr;
+    display:block;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:16px;
+    line-height:16.08px;
+    margin-top:10px;
+    overflow-wrap:break-word;
+    padding-left:10px;
+}
+
+span{
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:16.08px;
+    font-size:14px;
+    color:rgb(29, 33, 41);
+}
+
+h6{
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:16px;
+    line-height:16.08px;
+    color: #3b6bca;
+}
+
+.hr{
+    border: solid 1px rgb(204, 204, 204) !important;
+}
+
+.opciones{
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    cursor: pointer;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:16.08px;
+    font-size:20px;
+    color:rgb(29, 33, 41);
+}
+
+.btn-publicacion{
+    align-items:center;
+    color:rgb(96, 103, 112);
+    cursor:pointer;
+    direction:ltr;
+    display:flex;
+    flex-basis:0%;
+    flex-grow:1;
+    flex-shrink:0;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:15px;
+    font-weight:600;
+    height:36px;
+    justify-content:center;
+    line-height:14px;
+    overflow-wrap:break-word;
+    padding-bottom:0px;
+    padding-left:2px;
+    padding-right:2px;
+    padding-top:0px;
+    white-space:nowrap;
+    transition: ease 500ms;
+}
+
+.btn-publicacion:active{
+    transition: ease 500ms;
+    background-color: rgb(96, 103, 112);
+}
+
+.footer{
+    border: solid 1px rgb(255, 166, 49) !important;
+}
+
+.br{
+    height: 20px;
+    width: 100%;
+    background-color:  #ebe9e9;
+}
+
+
+.container-ion{
+    background-color: rgb(240, 240, 240);
+}
+
+ion-toolbar{
+    background-color:  #128c7e;
+}
+
+ion-card{
+    background-color: white;
+}
+
+.cart-categotia{
+    background-color: white;
+    cursor: pointer;
+}
+
+.titulo-container{
+    width: 90%;
+    margin: auto;
+    border-style: solid; border-width: 0.5px;
+}
+
+.img{
+    width: 70%;
+    max-height: 350px;
+    margin: auto;
+}
+
+.img-Selected{
+    width: 100%;
+    max-height: 350px;
+    margin: auto;
+}
+
+.icos-shop{
+    margin-top: 10px;
+}
+
+.antes{
+    font-size: 15px;
+    margin-top: 6px;
+    margin-left: 10px;
+    position: absolute;
+    text-decoration: line-through
+}
+
+.despues{
+    color: rgb(105, 216, 72);
+    font-size: 20px;
+}
+
+.btn-ingredientes{
+    color: white;
+    background-color: tomato;
+    border-radius: 25px;
+}
+
+.titulo{
+    color: white;
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 13px;
+    font-size: 13px;
+    background-color: rgba(0,0,0,0.47);
+}
+
+.btn-f{
+    border: medium none;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.4;
+    padding: 6px 12px;
+    transition: all 0.25s linear 0s;
+    -webkit-transition: all 0.25s linear 0s;
+    -moz-transition: all 0.25s linear 0s;
+    -ms-transition: all 0.25s linear 0s;
+    -o-transition: all 0.25s linear 0s;
+    background-color:  #128c7e;
+    color: #FFFFFF;
+}
+
+ion-select{
+    font-size: 15px;
+}
+
+
+.card-header{
+    background-color:  #128c7e;
+    color: white;
+}
+
+.dropBox{
+    background-color:  #128c7e;
+    color: white;
+}
+
+.img-add{
+    background-color: rgb(255, 166, 49);
+    overflow: hidden;
+    background-image: url('../../../../../assets/cameraAdd.png');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 6%;
+    right: 20%;
+}
+
+

@@ -20,8 +20,12 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 //import {environment,cliente} from '../../environments/environment.prod';
-import {environment,cliente} from '../environments/environment';
+import {environment,cliente} from '../environments/environment.prod';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ComponentsModule } from './components/components.module';
+
+import 'chartjs-plugin-zoom';
+import { ChartsModule } from 'ng2-charts';
 
 const config: SocketIoConfig = {
   url: environment.wsUrl , options: {}
@@ -36,6 +40,8 @@ const config: SocketIoConfig = {
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    ComponentsModule,
+    ChartsModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [

@@ -4,15 +4,16 @@
 
 export const environment = {
   production: true,
-  wsUrl: 'https://livereat.herokuapp.com/',
-  URI:'https://livereat.herokuapp.com/'
+  wsUrl: 'http://localhost:5000/',
+  URI:'http://localhost:5000/'
 };
 
 export const cliente = {
   //rutas para metodos crud
-  registrarse:'registrar_usuario',
+  registrarse:'registrar_negocio',
   loguearse:'iniciar_sesion',
-  protected:'protected'
+  loguearsePorToken:'iniciar_sesion_por_token',
+  protected:'negocio_protected'
 };
 
 /*

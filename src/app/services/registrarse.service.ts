@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import {environment,cliente} from '../../environments/environment.prod';
 import {environment,cliente} from '../../environments/environment.prod';
-import { HTTP } from '@ionic-native/http/ngx';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -34,8 +33,10 @@ export class RegistrarseService {
 
   iniciarSesionPorToken(){
     console.log('iniciar')
+    
 
     const usuario = this.userService.getUsuario();
+    console.log('usuario storage es: ',usuario); 
     const token = usuario.token;
 
     const payload = {
@@ -45,19 +46,47 @@ export class RegistrarseService {
     return this.http.post(`${environment.URI}${cliente.loguearsePorToken}`,payload);
 
   }
-  
-  registrarNuevoUsusario(nombre,apellido,correo,pass,cedula,img:File){
+
+  registrarUsario(negocio,email,password,imagen:File){
     const fm = new FormData;
-    console.log(nombre);
-    fm.append('nombre', nombre+' '+apellido);
-    fm.append('correo', correo);
-    fm.append('password', pass);
-    fm.append('cedula', cedula);
-    fm.append('imagen', img);
-    console.log(fm);
+    fm.append('nombreNegocio', negocio);
+    fm.append('email', email);
+    fm.append('password', password);
+    fm.append('imagen', imagen);
     return this.http.post(`${environment.URI}${cliente.registrarse}`,fm);
   }
 
+  registrarNuevoNegocio(
+    nombreUsuario,
+    telefonoNegocio,
+    cedula,
+    lon,
+    lat,
+    direccion,
+    envio,
+    codigoCedula,
+    idProvincia,
+    idCanton,
+    idDistrito
+  ){
+
+    const payload = {
+      nombreUsuario,
+      telefonoNegocio,
+      cedula,
+      lon,
+      lat,
+      direccion,
+      envio,
+      codigoCedula,
+      idProvincia,
+      idCanton,
+      idDistrito,
+      token:this.userService.usuario.token,
+      idUser:this.userService.usuario.id
+    };
+    return this.http.post(`${environment.URI}${cliente.registrarNegocio}`,payload);
+  }
 
   protected(){
     const usuario = this.userService.getUsuario();

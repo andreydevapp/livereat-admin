@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy   } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { HerramientasService } from 'src/app/services/herramientas.service';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
@@ -7,13 +7,15 @@ import { UserService } from 'src/app/services/user.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-iniciar-sesion',
   templateUrl: './iniciar-sesion.page.html',
   styleUrls: ['./iniciar-sesion.page.scss'],
 })
-export class IniciarSesionPage implements OnInit {
+export class IniciarSesionPage implements OnInit, OnDestroy {
 
   constructor(public loadingController: LoadingController,
     private herramientasService:HerramientasService,
@@ -32,6 +34,8 @@ export class IniciarSesionPage implements OnInit {
   correo:String = '';
   pass:String = '';
 
+  private unsubscribe$ = new Subject<void>();
+
   async validar(){
 
     if (this.correo !== '' && this.pass !== '') {
@@ -44,18 +48,21 @@ export class IniciarSesionPage implements OnInit {
 
   loguearse(){
     
-    this.registrarseService.iniciarSesion(this.correo,this.pass).subscribe(res => {
+    this.registrarseService.iniciarSesion(this.correo,this.pass)
+    .pipe(
+      takeUntil(this.unsubscribe$)
+    )
+    .subscribe(res => {
       
-      console.log(res);
+      console.log("negocio logueado",res);
       const user:any = res;
 
-      if (user.res === 'usuario registrado') {
+      if (user.res === 'negocio registrado') {
     
         //se guarda el usuario en la variable de entorno
-        this.userService.guardarUsuario(res);
-
-        //se envia la informacion del usuario para el servicio de ws
-        this.guardarUsuarioWS(res);
+        console.log("negocio registrado",user);
+        
+        this.guardarUsuario(user);
         
       }else{
 
@@ -70,15 +77,20 @@ export class IniciarSesionPage implements OnInit {
     
   }
 
+  async guardarUsuario(user:any){
+    this.userService.guardarUsuario(user);
+    this.guardarUsuarioWS(user);
+  }
+
   guardarUsuarioWS(user:any){
    
     //se envia los datos del usuario a ws
-    this.wsService.loginWS(user.nombre, user.id, user.imgUrl, 'cliente').then((res) => {
+    this.wsService.loginWS(user.nombreNegocio, user._id, user.imagen).then((res) => {
     
       //se guarda en el storage
       this.userService.guardarStorage();
       this.herramientasService.dismissLoading();
-      this.router.navigate(['/tabs']);
+      this.router.navigate(['tab-home']);
     
     }).catch((err) => {
     
@@ -96,6 +108,14 @@ export class IniciarSesionPage implements OnInit {
       console.log('Logged into Facebook!', res);
     })
     .catch(e => console.log('Error logging into Facebook', e));
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this. unsubscribe$.next();
+    this. unsubscribe$.complete();
+    console.log('desuscrito');
   }
 
 }

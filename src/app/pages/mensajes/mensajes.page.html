@@ -1,0 +1,71 @@
+<ion-header >
+  <ion-toolbar color='primary' class="nav">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-avatar class="avatar" slot="start">
+      <img *ngIf="id_fb" [src]="imagen" alt="">
+      <img *ngIf="!id_fb" [src]="uri+imagen">
+    </ion-avatar>
+    <div class="info-contact">
+      <li class="w-100" style="position: absolute; margin-top: -15px;">
+        {{ nombre }}
+      </li>
+      <span *ngIf="this.usuarioActivo.activo && this.usuarioActivo.idUser === idUser" style="font-size: 10px;margin-left: 3px;margin-top: 8px;position: absolute;">
+        En linea
+      </span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="content p-2 bg-imagen">
+    <ion-row *ngFor="let mensaje of mensajes" class="p-1">
+      <ion-col size='9' *ngIf="userService.usuario.id !== mensaje.de" class="message other-message">
+        <div *ngIf="mensaje.imagenConsulta !== ''" class="p-2 text-center">
+          <img class="w-100" [src]="uri+mensaje.imagenConsulta" alt="">
+        </div>
+        <span>
+          {{mensaje.body}}
+        </span><br>
+        <div class="time other-time w-100" text-left>
+          {{mensaje.createAt | date:'dd/MM/yyyy h:mm'}}
+          <div class="check-div">
+            <ion-icon id="other-chek" class="other-chek" name="checkmark"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col offset='3' size='9' *ngIf="userService.usuario.id === mensaje.de" class="message my-message">
+        <span>
+          {{mensaje.body}}
+        </span><br>
+
+        <div class="time my-time" text-right>
+          {{mensaje.createAt | date:'dd/MM/yyyy h:mm'}}
+          <div class="check-div">
+            <ion-icon *ngIf="mensaje.visto === true" id="my-check" class="my-chek visto" name="checkmark"></ion-icon>
+            <ion-icon *ngIf="mensaje.visto === false" id="my-check" class="my-chek" name="checkmark"></ion-icon>
+          </div>
+        </div>
+
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer >
+  <ion-toolbar >
+    <ion-row align-items-center no-padding>
+      <ion-col size='10'>
+        <textarea autosize maxRows="5" placeholder="Escribe un mensaje aquí." [(ngModel)]="nuevoMensaje" class="message-input"></textarea>
+      </ion-col>
+      <ion-col size='2'>
+        <ion-button expand='block' fill='clear' color='primary' [disabled]="nuevoMensaje === ''" class="btn-msg" (click)="enviarMensaje()">
+          <ion-icon name='ios-send' slot='icon-only'></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+

@@ -1,0 +1,227 @@
+
+<ion-content color="light" class="ion-content" [scrollEvents]="true" (ionScroll)="onScroll($event)">
+    
+    <div class="fondo text-center">
+        <ion-avatar *ngIf="datosCargados" class="m-auto avatar">
+            <img [src]="this.userService.usuario.imagenMin">
+        </ion-avatar>
+    </div>
+
+    <ion-item lines="none" color="primary">
+        <ion-card-title  *ngIf="datosCargados">
+            <strong>
+                {{this.userService.usuario.nombreNegocio}}
+            </strong> 
+        </ion-card-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="onClick()">
+                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    
+
+    <ion-card class="color-card" [routerLink]="[ '/tab-home/pedidos' ]">
+        <div class="card-content">
+            <div class="p-2">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size='8'>
+                         <h1>
+                             <strong>
+                                {{cantiPedidos}}
+                             </strong>
+                         </h1>
+                         <h4>Nuevas Ordenes</h4>
+                        </ion-col>
+                        <ion-col size='4' >
+                         <img class="img-card-panel w-50" src="../../../../../assets/order.png" alt="">
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+             </div>
+             <div class="btn-pedidos text-center p-1 w-100">
+                 <ion-buttons >
+                     <ion-button class="m-auto" expand="full">
+                         Ver todas las ordenes <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                     </ion-button>
+                 </ion-buttons>         
+                 
+             </div>
+        </div>
+        <div class="clip-card">
+            <div class="p-2">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size='8'>
+                         <h1>
+                             <strong>
+                                {{cantiPedidos}}
+                             </strong>
+                         </h1>
+                         <h4>Nuevas Ordenes</h4>
+                        </ion-col>
+                        <ion-col size='4' >
+                         <img class="img-card-panel w-50" src="../../../../../assets/order.png" alt="">
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+             </div>
+             <div class="btn-pedidos text-center p-1 w-100">
+                 <ion-buttons >
+                     <ion-button class="m-auto" expand="full">
+                         Ver todas las ordenes <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                     </ion-button>
+                 </ion-buttons>         
+                 
+             </div>
+        </div>
+        
+    </ion-card>
+
+    <ion-card class="color-card-platillos"  [routerLink]="[ '/tab-platillos' ]">
+        
+        <div class="card-platillos-content">
+            <div class="p-2">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size='8'>
+                         <h1>
+                            <strong>
+                                {{cantiPlatillos}}
+                            </strong>
+                         </h1>
+                         <h3>Mis platillos</h3>
+                        </ion-col>
+                        <ion-col size='4' >
+                        <img class="img-card-panel w-50" src="../../../../../assets/menu.png" alt="">
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+             </div>
+             <div class="btn-pedidos text-center p-1 w-100">
+                 <ion-buttons >
+                     <ion-button class="m-auto" expand="full">
+                        Administrar mis platillos <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                     </ion-button>
+                 </ion-buttons>          
+             </div>
+        </div>
+
+        <div class="clip-card-platillos">
+            <div class="p-2">
+               <ion-grid>
+                   <ion-row>
+                       <ion-col size='8'>
+                        <h1>
+                           <strong>
+                               {{cantiPlatillos}}
+                           </strong>
+                        </h1>
+                        <h3>Mis platillos</h3>
+                       </ion-col>
+                       <ion-col size='4' >
+                       <img class="img-card-panel w-50" src="../../../../../assets/menu.png" alt="">
+                       </ion-col>
+                   </ion-row>
+               </ion-grid>
+            </div>
+            <div class="btn-pedidos text-center p-1 w-100">
+                <ion-buttons >
+                    <ion-button class="m-auto" expand="full">
+                       Administrar mis platillos <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                    </ion-button>
+                </ion-buttons>          
+            </div>
+        </div>
+        
+    </ion-card>
+
+    <hr>
+
+    <ion-card class="color-card-grafico" >
+        <div class="p-2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size='8'>
+                     <h5><strong>Información grafica de mis ventas mensuales</strong></h5>
+                     <ion-buttons >
+                        <ion-button class="m-auto" expand="full">
+                            Ver información <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    </ion-col>
+                    <ion-col size='4' >
+                    <img class=" w-75" src="../../../../../assets/graphic.png" alt="">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+         </div>
+    </ion-card>
+
+    <ion-card class="color-card-cartera"  [routerLink]="[ '/tab-platillos' ]">
+        <div class="p-2">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size='8'>
+                     <h1>
+                        <strong>
+                            ₡ {{0 | number}}
+                        </strong>
+                     </h1>
+                     <h3>Mi cartera</h3>
+                    </ion-col>
+                    <ion-col size='4' >
+                    <img class="img-card-panel w-50" src="../../../../../assets/wallet.png" alt="">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+         </div>
+         <div class="btn-pedidos text-center p-1 w-100">
+             <ion-buttons >
+                 <ion-button class="m-auto" expand="full">
+                    Mira el estado de tu cartera <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+                 </ion-button>
+             </ion-buttons>          
+         </div>
+    </ion-card>
+
+    <hr>
+
+    <ion-row>
+        <ion-col size="7">
+            
+            <ion-card class="color-card-options-1" >
+                <div class="p-1">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size='9'>
+                             <h5><strong>Administrar mi negocio</strong></h5>
+                            </ion-col>
+                            <ion-col size='3' >
+                            <img class="img-card-panel w-75" src="../../../../../assets/bakery-shop.png" alt="">
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                 </div>
+            </ion-card>
+
+        </ion-col>
+        <ion-col size="5">
+            <ion-card class="text-center color-card-options-2" >
+                <h1>
+                    <strong>
+                        {{cantiVentas}}
+                    </strong>
+                </h1>
+                <h4><strong>Ventas</strong></h4>
+
+            </ion-card>
+        </ion-col>
+
+    </ion-row>    
+
+    <br>
+
+</ion-content>

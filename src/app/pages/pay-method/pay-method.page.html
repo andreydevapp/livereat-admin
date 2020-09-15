@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Confirmar compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container-fluid">
+    <header>
+        <div class="limiter">
+            <h3>Demostración: Validación de tarjeta de crédito con 4geeks</h3>
+            <a href="http://tutorialzine.com/2016/11/simple-credit-card-validation-form/">Download</a>
+        </div>
+    </header>
+    <div class="creditCardForm">
+        <div class="heading">
+            <h1>Confirmar compra</h1>
+        </div>
+        <div class="payment">
+            <form>
+                <div class="form-group owner">
+                    <label for="owner">Propietari@</label>
+                    <input type="text" class="form-control" id="owner">
+                </div>
+                <div class="form-group CVV">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv">
+                </div>
+                <div class="form-group" id="card-number-field">
+                    <label for="cardNumber">Número de tarjeta</label>
+                    <input [(ngModel)]="numCard" name="numCard" (input)="changeValuesCard($event);" type="text" class="form-control" id="cardNumber">
+                </div>
+                <div class="form-group" id="expiration-date">
+                  <ion-grid>
+                    <label>
+                      Fecha de caducidad
+                    </label>
+                    <ion-row>
+                      <ion-col size="4">
+                        <ion-item>
+                          <ion-label position="stacked">Mes</ion-label>
+                          <ion-datetime displayFormat="MM" value="2012-12-15T13:47:20.789"></ion-datetime>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col size="8">
+                        <ion-item>
+                          <ion-label position="stacked">Año</ion-label>
+                          <ion-datetime displayFormat="YYYY" value="2012-12-15T13:47:20.789" min="2019-03-14" max="2040-12-09"></ion-datetime>
+                        </ion-item>
+                      </ion-col> 
+                    </ion-row>
+
+                  </ion-grid>
+                    
+                </div>
+                <div class="form-group" id="credit_cards">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col size="6" class="text-center">
+                          <img id="img-visa" class="m-auto" src="../../../assets/visa.jpg">
+                        </ion-col>
+                        <ion-col size="6" class="text-center">
+                          <div class="text-center">
+                            <img id="img-mastercard" class="m-auto" src="../../../assets/mastercard.jpg">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                </div>
+                <div class="form-group" id="pay-now">
+                    <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <p class="examples-note">
+      Aquí hay algunos números ficticios de tarjetas de crédito y códigos CVV para que pueda probar el formulario:
+    </p>
+
+    <div class="examples">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Card Number</th>
+                        <th>Security Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visa</td>
+                        <td>4716108999716531</td>
+                        <td>257</td>
+                    </tr>
+                    <tr>
+                        <td>Master Card</td>
+                        <td>5281037048916168</td>
+                        <td>043</td>
+                    </tr>
+                    <tr>
+                        <td>American Express</td>
+                        <td>342498818630298</td>
+                        <td>3156</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</ion-content>

@@ -1,3 +1,41 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="menu" contentId="menuMain">
+    <ion-header>
+      <ion-item lines="none" color="primary" *ngIf="datosCargados">
+        <ion-avatar slot="start">
+          <img [src]="this.userService.usuario.imagenMin">
+        </ion-avatar>
+        <ion-label *ngIf="datosCargados">{{this.userService.usuario.nombreNegocio}}</ion-label>
+      </ion-item>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="go('/tab-home/pedidos')">
+          <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon> Nuevas Ordenes
+        </ion-item>
+        <ion-item (click)="go('/tab-platillos/mis-platillos')">
+          <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon> Administrar Mis Platillos
+        </ion-item>
+        <ion-item (click)="go('/tab-chat/chat')">
+          <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon> Chat
+        </ion-item>
+        <ion-item (click)="go('/planes')">
+          <ion-icon ios="ios-pricetag" md="md-pricetag"></ion-icon> Mis Ventas
+        </ion-item>
+        <ion-item (click)="go('/planes')">
+          <ion-icon ios="ios-cash" md="md-cash"></ion-icon> Mi Cartera
+        </ion-item>
+        <ion-item (click)="go('/planes')">
+          <ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon> Administrar Mi Negocio
+        </ion-item>
+        <ion-item (click)="go('/planes')">
+          <ion-icon ios="ios-star" md="md-star"></ion-icon> Planes
+        </ion-item>
+        <ion-item (click)="go('/planes')">
+          <ion-icon ios="ios-construct" md="md-construct"></ion-icon> Configuración
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="menuMain"></ion-router-outlet>
 </ion-app>

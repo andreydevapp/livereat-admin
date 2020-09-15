@@ -1,0 +1,108 @@
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item color="light" lines="none">
+    <label class="text-dark">
+      Filtros
+    </label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon ios="ios-options" md="md-options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-card color="light" *ngFor="let factura of facturas.facturas"> 
+    <div *ngIf="factura.visto.estado === false && factura.cancelado.estado === false" class="img-new"></div>
+    <div *ngIf="factura.entregado.estado === true && factura.cancelado.estado === false" class="img-entregado"></div>
+    <div *ngIf="factura.cancelado.estado === true" class="img-cancelado"></div>
+    <ion-card-header>
+      
+      <strong>
+        <label>
+         Pedido de:
+        </label>
+      </strong>
+      <ion-item >
+        <ion-avatar slot="start">
+          <img [src]="factura.cliente.imagenCliente" alt="Imagen cliente">
+        </ion-avatar>
+        <label>
+          {{factura.cliente.nombreUsuario}}
+        </label>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong>
+        <label>
+          Una orden de:
+        </label>
+      </strong>
+
+      <ion-row>
+        <ion-col size="7">
+          <strong>
+            <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon> Platillo
+          </strong>
+        </ion-col>
+        <ion-col  size="5">
+          <strong>
+            Precio unitario
+          </strong>
+        </ion-col>
+      </ion-row>
+      
+      <div class="p-2 .bg-secondary w-100 linea"></div>
+
+      <ion-row *ngFor="let platillo of factura.platillos">
+        <ion-col size="7">
+          {{platillo.cantidad}} {{platillo.nombrePlatillo}}
+        </ion-col>
+        <ion-col  size="5">
+          ₡ {{platillo.precio | number}}
+        </ion-col>
+      </ion-row>
+
+      <div class="p-2 .bg-secondary w-100 linea"></div>
+
+      <ion-row>
+        <ion-col size="7">
+          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> Pedido realizado el:
+        </ion-col>
+        <ion-col size="5">
+          {{factura.createAt | date:'dd/MM/yyyy h:mm '}}
+        </ion-col>
+      </ion-row>
+       
+      <hr>
+
+      <strong>
+        <label>
+          Total: ₡ {{factura.totalFinal | number}}
+        </label>
+      </strong>
+
+    </ion-card-content>
+    
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="full" color="danger">
+          <ion-icon ios="ios-copy" md="md-copy"></ion-icon> Generar PDF
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="ver_pedido(factura)" expand="full" color="primary">
+          <ion-icon ios="ios-list-box" md="md-list-box"></ion-icon> Ver pedido
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  
+  <br>
+</ion-content>

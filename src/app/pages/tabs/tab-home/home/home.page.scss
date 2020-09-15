@@ -1,0 +1,154 @@
+ion-item-divider{
+    font-size: 1.40rem;
+}
+
+ion-card-title{
+    color: white;
+}
+
+ion-icon{
+    top: 3px;
+}
+
+ion-label{
+    font-size: 20px !important;
+    color: #78787c !important;
+    letter-spacing: 1px !important;
+}
+
+ion-item{
+    width: 100% !important;
+}
+
+.fondo{
+    width: 100% !important;
+    height: 220px !important;
+    background-image: url('../../../../../assets/bg.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.color-card{
+    background: #5cd3e3;
+   
+}
+
+.clip-card{
+    background-color: #6cf0fa;
+    clip-path: polygon(50% 0%, 100% 0, 100% 59%, 77% 100%, 0 100%, 0 0);
+}
+
+.card-content{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.color-card-platillos{
+    color: white;
+    background-color: #6aeead;
+}
+
+.clip-card-platillos{
+    background-color: #9df2c0;
+    clip-path: polygon(50% 0%, 100% 0, 73% 0, 0 100%, 0 100%, 0 0);
+}
+
+.card-platillos-content{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.color-card-grafico{
+    background-color: #ffbc75;
+}
+
+.color-card-cartera{
+    background-color: #63eaa5;
+}
+
+.color-card-options-1{
+    background-color: #ffd776;
+    height: 100px;
+}
+
+.color-card-options-2{
+    background-color: #81dee6;
+    height: 100px;
+}
+
+.img-card-panel{
+    position: absolute;
+    top: 15% !important;
+    right: 10% !important;
+    
+}
+
+.avatar{
+    width: 170px !important;
+    height: 170px !important;
+    position: absolute;
+    left: 50%;
+    transform: translate( -50%);
+    -webkit-transform: translate( -50%);
+    margin-top: 25px !important;
+    border: 9px rgba(44, 209, 238, 0.3) solid;
+}
+
+.contenedor{
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); 
+}
+
+ion-card{
+    color: white !important;
+}
+
+.linea{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(122, 122, 122);
+}
+
+.ion-item{
+    max-width: 100% !important;
+    -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    border-left: 4px solid rgba(253,159,40) !important;
+}
+
+.borde-naranja{
+    border-right: 4px solid rgba(253,159,40) !important;
+    height: 100%;
+    border-radius: 30px;
+    width: 3px !important;
+    padding: 0 !important;
+}
+
+ion-button{
+    font-size: 15px !important;
+}
+
+
+.opc{
+    display: inline-block;
+}
+
+.img-opc{
+    display: inline-block;
+}
+
+.border{
+    border-bottom: 1px solid #474749 !important;
+}
+
+.lbl-izq{
+    text-align: left !important;
+}
+
+.lbl-der{
+    text-align: right !important;
+}

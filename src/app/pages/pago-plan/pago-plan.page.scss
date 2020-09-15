@@ -1,0 +1,113 @@
+.bg-azul{
+    background-color: #5493b7;
+    font-family: Roboto, Tahoma;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 35px;
+    color: white;
+}
+
+.row1{
+    font-family: Roboto, Tahoma;
+    font-size: 12px;
+    font-weight: 200;
+    line-height: 19px;
+    color: white;
+}
+
+.col-celeste{
+    background-color: rgb(68,209,234);
+}
+
+.col-celeste-light{
+    background-color: rgb(146, 223, 236);
+    width: 100%;
+    height: 100%;
+}
+
+.col-gris{
+    background-color: #d7d7d7;
+    width: 100%;
+    height: 100%;
+}
+
+.col-gris-light{
+    background-color: #ebebeb;
+    width: 100%;
+    height: 100%;
+}
+
+
+.lbl-table{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 19px;
+    font-family: Roboto, Tahoma;
+}
+
+.lbl-gris{
+    color: #767681;
+}
+
+.lbl-gris-light{
+    color: #8b8b8b;
+}
+
+.lbl-verde{
+    color: #59a29c;
+}
+
+.lblImportant{
+    font-size: 14px !important;
+}
+
+.lblTotal{
+    color: white;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 35px;
+    font-family: Roboto, Tahoma;
+}
+
+.lblPrecio{
+    color: #8b8b8b;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 35px;
+    font-family: Roboto, Tahoma;
+}
+
+
+.btn-plan{
+    border-radius: 10px;
+    margin: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    line-height: 19px;
+    font-size: 13px;
+    color: white;
+    width: 100%;
+}
+
+.btn-paypal{
+    background-color: rgb(68,209,234) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    -webkit-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+}
+
+.btn-blanco{
+    background-color: white;
+    color: #3b7b83 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    -webkit-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+box-shadow: 1px 4px 15px -3px rgba(0,0,0,0.75);
+}

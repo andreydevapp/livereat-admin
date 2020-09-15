@@ -1,0 +1,94 @@
+ion-content {
+    --background: url("../../../assets/bg.PNG") 0 0/100% 100% no-repeat !important;
+}
+
+label{
+    font-family: "Segoe UI",system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif !important;
+}
+
+.text-nom{
+    color: white;
+}
+
+.total{
+    border-left: 2px solid dodgerblue !important;
+    border-bottom: 1px solid #ebe9e9 !important;
+}
+
+.img-platillo{
+    width: 100% !important;
+    height: 125px !important;
+}
+
+.info-pasos{
+    padding-left: 20px !important;
+}
+
+
+.platillo-info{
+    font-size: 14px !important;
+    color: black !important;
+}
+
+.barra-gris{
+    border-bottom: 1px solid #ebe9e9 !important;
+}
+
+.borde-azul{
+    border-radius: 10px !important;
+    background: rgb(68,209,234) linear-gradient(90deg, rgba(68,209,234,1) 0%, rgba(109,227,255,1) 100%);
+    border: 1px solid dodgerblue !important;
+    
+}
+
+.note{
+    color: white;
+    background: rgb(68,209,234) linear-gradient(90deg, rgba(68,209,234,1) 0%, rgba(109,227,255,1) 100%);
+}
+
+.color-azul{
+    color: white !important;
+}
+
+.text-info{
+    font-size: 18px !important;
+}
+
+.mensaje-contenedor{
+    border-radius: 15px !important;
+    padding-left: 20px !important;
+    padding-right: 15px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+span{
+    color: black;
+    font-size: 13px !important;
+    font-family: "Segoe UI",system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif !important;
+}
+
+ion-avatar{
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: 15px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+
+.estado-platillo{
+    display:inline-block;
+    vertical-align:top;
+}
+
+.img-estado{
+    width: 55px !important;
+    height: 55px !important;
+}
+
+.linea{
+    font-size: 25px !important;
+    position: unset;
+    margin-top: -30px !important;
+}

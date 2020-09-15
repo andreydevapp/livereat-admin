@@ -1,0 +1,150 @@
+<ion-content color="medium" [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+  <ion-item color="secondary">
+    <ion-label>
+      Ver Vista Previa
+    </ion-label>
+    <ion-spinner name='lines-small' *ngIf="cargandoGeo"></ion-spinner>
+    <ion-toggle slot="end" (ionChange)='mostrarVistaPrevia()'></ion-toggle>
+  </ion-item>
+
+
+  <div class="w-100 bg-white" *ngIf="vistaPrevia">
+
+    <ion-item >
+      <ion-avatar slot="start">
+        <img [src]="uri+this.userService.usuario.imagen">
+      </ion-avatar>
+      <ion-label>
+        <span>
+          <a href=""><strong>{{this.userService.usuario.nombreNegocio}}</strong></a>
+        </span>
+        <br>
+        <span>
+            <ion-icon name="globe"></ion-icon> {{date}}
+        </span>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="ios-more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-item class="p-1">
+      <div class="body p-2">
+        <h6 *ngIf="!nombre || nombre === ''">
+          <ion-icon name="restaurant"></ion-icon> Sin Nombre. 
+        </h6>
+        <h6 *ngIf="nombre !== ''">
+          <ion-icon *ngIf="nombre != ''" name="restaurant"></ion-icon> {{nombre}}  
+        </h6>
+        <p *ngIf="!descripcion || descripcion === ''">
+          Sin Descripción.
+        </p>
+        <p *ngIf="descripcion !== ''">
+          {{descripcion}}
+        </p>
+        
+      </div>
+    </ion-item>
+  
+    
+      <div class="w-100 text-center">
+        <img  *ngIf="!photoSelected" [src]="'../../../../../assets/dish.png'" alt="noimage" class="img">
+        <img *ngIf="photoSelected" [src]="photoSelected" alt="noimage" class="img-Selected">
+      </div>
+
+    <ion-item class="p-1">
+      <div class="body p-2">
+        <h6>
+          Precio: 
+          <strong *ngIf="!precio || precio === 0">₡0</strong> 
+          <strong *ngIf="precio > 0">₡{{precio}}</strong>
+        </h6>
+      </div>
+    </ion-item>
+    <div class="p-1"></div>
+  </div>
+  <hr>
+
+  <div>
+
+    <div class="caintainer-inputs">
+      <ion-card class="p-2">
+        <ion-title class="w-100 text-center">
+          Imagen del platillo.
+        </ion-title><br>
+        <ion-card-content>
+          <form action="" (submit)='uploadPhoto()'>
+            <input type="file" accept="image/*" class="d-none" (change)='onImgSelected($event)' #imgInputPlatillo name="imgInputPlatillo">
+            <div>
+              <img *ngIf="!photoSelected" [src]="'../../../../../assets/dish.png'" alt="noimage" class="img" (click)='imgInputPlatillo.click()'>
+              <img *ngIf="photoSelected" [src]="photoSelected" alt="noimage" class="img-Selected" (click)='imgInputPlatillo.click()'>
+            </div>
+            <div *ngIf="!photoSelected" class="img-add p-2">
+            </div>
+          </form>
+        </ion-card-content>
+        
+      </ion-card>
+      <hr>
+      <ion-card>
+        <div class="form-group">
+          <ion-list>
+            <ion-title class="w-100 text-center">
+              Tipo de categoria
+            </ion-title><br>
+            <ion-item (click)="validarCategoria('platillo')">
+              <ion-label>Platillo</ion-label>
+              <ion-checkbox slot="end" [(ngModel)]="isPlatillo"></ion-checkbox>
+            </ion-item>
+            <ion-item (click)="validarCategoria('bebida')">
+              <ion-label>Bebida</ion-label>
+              <ion-checkbox slot="end" [(ngModel)]="isBebida"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-card>
+      <hr>
+      <ion-card class="p-2">
+        <ion-title class="w-100 text-center">
+          {{informacionOpc}}
+        </ion-title>
+        <br>
+        <div class="form-group">
+          <ion-item>
+            <ion-label for="nombre" position="floating">{{nombreOpc}}</ion-label>
+            <ion-input name="nombre" placeholder="Nombre" [(ngModel)]="nombre" type="text"></ion-input>
+          </ion-item>
+        </div>
+        <div class="row form-group">
+          <div class="col">
+            <ion-item>
+              <ion-label for="precio" position="floating">Precio</ion-label>
+              <ion-input name="precio" placeholder="0" [(ngModel)]="precio" type="number"></ion-input>
+            </ion-item>  
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- Textarea with custom number of rows and cols -->
+          <ion-item>
+              <ion-label for="descripcion" position="floating">Descripcion</ion-label>
+              <ion-textarea placeholder="Descripción" class="w-100" autosize maxRows="5" rows='2' name='descripcion' [(ngModel)]="descripcion"></ion-textarea>
+          </ion-item>
+        </div>
+
+        <br>
+        <button id='btn-guardar' (click)="validarParaGuardar()" class="w-100 btn btn-f">
+          Guardar
+        </button>
+
+      </ion-card>
+
+    </div>
+    <br>
+
+  </div>
+
+
+</ion-content>

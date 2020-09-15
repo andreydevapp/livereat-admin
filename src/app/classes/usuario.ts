@@ -1,28 +1,47 @@
 export class Usuario {
 
-    public nombre: string;
+    //usuario
     public id: string;
     public idWS:string;
     public token: string;
-    public imgUrl: string;
+    public nombreUsuario: string;
     public email: string;
-    public logueadoConFb:boolean;
-    public opc:string;
 
-    constructor( nombre: string, id: string, token: string, imgUrl: string, email: string) {
+    //negocio
+    public lon:number;
+    public lat:number;
+    public nombreNegocio:string;
+    public imagen:string;
+    public imagenMin:string;
+    public opc:string;
+    public plan:string;
+    public active:boolean;
+
+    constructor( 
+        //usuario
+        nombreUsuario: string, id: string, token: string, email: string,
+        //negocio
+        nombreNegocio: string, imagen: string, imagenMin: string, lon:number, lat:number, plan:string, active:boolean
+    ){
         
-        this.nombre = nombre;
+        //usuario
         this.id = id;
-        this.idWS = 'sin-id';
+        this.idWS ='sin-id';
         this.token = token;
-        this.imgUrl = imgUrl;
+        this.nombreUsuario = nombreUsuario;
         this.email = email;
-        this.logueadoConFb = false;
-        this.opc = 'cliente';
+    
+        //negocio
+        this.lon = lon;
+        this.lat = lat;
+        this.nombreNegocio = nombreNegocio;
+        this.imagen = imagen;
+        this.imagenMin = imagenMin;
+        this.opc = 'negocio';
+        this.plan = plan;
+        this.active = active;
 
     }
-
-
 
 }
 

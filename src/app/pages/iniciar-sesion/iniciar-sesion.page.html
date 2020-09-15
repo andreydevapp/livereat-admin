@@ -6,7 +6,17 @@
 
       <div class="container center">
         
-        <br color="dark">
+        <div class="text-center">
+          <h1 class="logo">
+            <strong>
+              Livereat
+            </strong>
+            <div class="subrayado"></div>
+          </h1>
+          <img class="logo img" src="../../../assets/foodRoket.png" alt="">
+        </div>
+        
+        <br><br>
   
         <ion-item color="light">
           <ion-label position='floating'>Correo</ion-label>
@@ -21,9 +31,9 @@
         </ion-item>
         
   
-        <label class="label-olvido" for="">
+        <ion-label class="label-olvido" for="">
           Olvido su contraseña?
-        </label>
+        </ion-label>
   
         <br color="dark"><br color="dark">
   
@@ -31,13 +41,9 @@
   
         <br>
   
-        <ion-button expand="full" class="btn-face" color="medium" (click)="loginFB()"><ion-icon name="logo-facebook"></ion-icon> Iniciar con Facebook</ion-button>
-  
-        <br>
-  
-        <label  [routerLink]="[ '/registrarse']" class="label-registrate" for="">
-          Eres nuevo, Registrate aquí.
-        </label>
+        <ion-label  [routerLink]="[ '/registrar-usuario']" class="label-registrate" for="">
+          <strong>Eres nuevo, Registrate aquí.</strong>
+        </ion-label>
         <br>
       </div>
 

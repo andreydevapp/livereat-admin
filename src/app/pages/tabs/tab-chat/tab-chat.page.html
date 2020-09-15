@@ -1,0 +1,29 @@
+<ion-header id='headerChat' #headerChat no-border >
+  <ion-toolbar color='primary' class="p-0 text-white">
+
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+
+    <ion-title slot="start">{{active}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs id='tabsChat' #tabsChat>
+  <ion-tab-bar slot="top">
+
+    <ion-tab-button tab="contactos" (click)="activar('Contactos')">
+      <ion-icon name="contacts"></ion-icon>
+      <ion-label>Contactos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="chat" (click)="activar('Chat')">
+        <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>Chat</ion-label>
+    </ion-tab-button>
+  
+  </ion-tab-bar>
+</ion-tabs>
+
+

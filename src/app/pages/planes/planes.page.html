@@ -1,0 +1,389 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Planes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <br>
+
+  <div class="text-center">
+    <label class="tittle">
+      Planes
+    </label>
+    <p class="p-1">
+      Elige uno de nuestros planes y empieza a crecer con Livereat
+    </p> 
+  </div>
+
+  <ion-slides [options]="slideOpts">
+    <ion-slide>
+      <ion-card>
+        <div class="linea-verde"></div>
+        <div class="text-center p-1 name-plan text-verde">
+          Pyme
+        </div>
+        <br>
+        <div class="p-1 precio">
+          18 USD/Mes
+        </div>
+        <div class="p-1  text-center p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="descuento">
+                10% de descuento en pago anual
+              </label>
+            </div>
+            
+          </ion-item>
+          
+        </div>
+
+        <br>
+
+        <ion-list class="p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                100 Comprobantes electrónicos* mensuales
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Límite de facturación mensual de hasta ₡5.000.000 Colones
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                2 Usuarios con acceso a Livereat
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                2 Bodegas de inventario
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Adjunta hasta 20.000 archivos
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Integración con otras aplicaciones
+              </label>
+            </div>
+          </ion-item>
+        </ion-list>
+
+        <br>
+
+        <button (click)="pymeSelected()" class="btn-plan btn-verde">
+          Obtener Plan
+        </button>
+
+        <div class="p-2"></div>
+
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <div class="linea-celeste"></div>
+        <br>
+        <div class="linea-celeste-inclinada text-center">
+          <ion-icon ios="ios-star" md="md-star"></ion-icon> SUGERIDO
+        </div>
+        <div class="text-center p-1 name-plan text-celeste">
+          Pro
+        </div>
+        <div class="p-1 precio">
+          28 USD/Mes
+        </div>
+        <div class="p-1  text-center p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="descuento">
+                10% de descuento en pago anual
+              </label>
+            </div>
+          </ion-item>
+        </div>
+
+        <br>
+
+        <ion-list class="p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                500 Comprobantes electrónicos* mensuales
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Límite de facturación mensual de hasta ₡20.000.000 Colones
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                3 Usuarios con acceso a Alegra
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                10 Bodegas de inventario
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Adjunta hasta 20.000 archivos
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Integración con otras aplicaciones
+              </label>
+            </div>
+          </ion-item>
+        </ion-list>
+
+        <br>
+
+        <button (click)="proSelected()" class="btn-plan btn-celeste">
+          Obtener Plan
+        </button>
+
+        <div class="p-2"></div>
+
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <div class="linea-azul"></div>
+        <div class="text-center p-1 name-plan text-azul">
+          Plus
+        </div>
+        <br>
+        <div class="p-1 precio">
+          48 USD/Mes
+        </div>
+        <div class="p-1  text-center p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="descuento">
+                10% de descuento en pago anual
+              </label>
+            </div>
+            
+          </ion-item>
+          
+        </div>
+
+        <br>
+
+        <ion-list class="p-pla-rigth">
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                2.500 Comprobantes electrónicos* mensuales
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Facturación mensual ilimitada 
+              </label><br><br>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                8 Usuarios con acceso a Alegra
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                100 Bodegas de inventario
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Adjunta hasta 20.000 archivos
+              </label>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="text-center w-100">
+              <label class="info">
+                Integración con otras aplicaciones
+              </label>
+            </div>
+          </ion-item>
+        </ion-list>
+        <br>
+
+        <button (click)="plusSelected()" class="btn-plan btn-azul">
+          Obtener Plan
+        </button>
+
+        <div class="p-2"></div>
+
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <br>
+
+  <p class="p-1 text-center">
+    ¿Aún no encuentras el mejor plan para ti?
+  </p>
+
+
+  <div class="p-3 w-100 card-emprendedor">
+    <ion-card>
+      <div class="linea-gris"></div>
+      <div class="text-center p-1 name-plan-emprendedor w-100">
+        PLAN EMPRENDEDOR
+      </div>
+      <br>
+      <div class="p-1 text-center precio-emprendedor">
+        USD $8 / MES
+      </div>
+      <div class="p-1 text-center p-pla-rigth">
+        <ion-item>
+          <div class="text-center w-100">
+            <label class="descuento">
+              10% de descuento en pago anual
+            </label>
+          </div>
+          
+        </ion-item>
+        
+      </div>
+  
+      <br>
+  
+      <ion-list class="p-pla-rigth">
+        <ion-item>
+          <div class="text-center w-100">
+            <label class="info">
+              Crea 10 facturas de ventas y 10 facturas de compra mensuales, hasta ₡500,000 de ingresos al mes, 1 usuario y 1 bodega.
+            </label>
+          </div>
+        </ion-item>
+      </ion-list>
+  
+      <br>
+  
+      <div class="w-100 text-center">
+        <button (click)="emprendedorSelected()" class="btn-plan btn-gris">
+          Obtener Plan
+        </button>
+      </div>
+      
+      <div class="p-2"></div>
+  
+    </ion-card>
+  </div>
+
+  <br>
+
+  
+
+  <div class="pregunatas-container p-1">
+
+    <label class="w-100 text-center robo500 p-2">
+      Preguntas frecuentes sobre pagos
+    </label>
+    
+    <div class="p-2">
+
+      <ion-list class="p-rigth">
+        <ion-item>
+            <div class="w-100 p-2">
+              <label class="robo400">
+                ¿Cómo funciona el Demo de 15 días?
+              </label><br>
+              <div class="p-1"></div>
+              <label class="robo300">
+                Durante 15 días podrás utilizar Alegra con todas sus funciones, crear una cuenta solo toma minutos y transcurridos los 15 días puedes seleccionar el plan que utilizarás.
+              </label>
+            </div>
+        </ion-item>
+        <br>
+        <ion-item>
+          <div class="w-100 p-2">
+            <label class="robo400">
+              ¿Cuándo puedo Cancelar mi Plan?
+            </label><br>
+            <div class="p-1"></div>
+            <label class="robo300">
+              El plan que hayas seleccionado se puede cancelar en cualquier momento, no hay cláusulas de permanencia o contratos a largo plazo. Solo escríbenos 5 días antes de la finalización de tu plan en alegra.com/123 y te ayudaremos.
+            </label>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <br>
+  
+    <div class="p-2">
+  
+      <ion-list class="p-rigth">
+        <ion-item>
+            <div class="w-100 p-2">
+              <label class="robo400">
+                ¿Puedo cambiar de Plan en cualquier momento?
+              </label><br>
+              <div class="p-1"></div>
+              <label class="robo300">
+                Puedes cambiar de Plan cada mes si así lo requieres, simplemente escríbenos en alegra.com/123.
+              </label>
+            </div>
+        </ion-item>
+        <br>
+        <ion-item>
+          <div class="w-100 p-2">
+            <label class="robo400">
+              Aún tengo preguntas
+            </label><br>
+            <div class="p-1"></div>
+            <label class="robo300">
+              Consulta nuestra sección de Preguntas Frecuentes o nuestro centro de ayuda. Si quieres hablar con el equipo Alegra, escríbenos en alegra.com/123 déjanos tus datos y te llamaremos.
+            </label>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </div>
+
+  
+
+</ion-content>

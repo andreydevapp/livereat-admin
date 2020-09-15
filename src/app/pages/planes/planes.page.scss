@@ -1,0 +1,196 @@
+ion-card{
+    font-family: Roboto, sans-serif;
+    width: 100%;
+}
+
+p{
+    color: #00535e;
+    font-family: Roboto, sans-serif;
+    background-color: #f9fafd;
+    width: 100%;
+}
+
+.tittle{
+    color: #005382;
+    font-family: Roboto, sans-serif;
+    font-size: 36px !important;
+}
+
+.name-plan{
+    font-family: Roboto, sans-serif;;
+    font-size: 36px;
+    line-height: 45px;
+    font-weight: 700;
+}
+
+.name-plan-emprendedor{
+    font-family: Roboto, sans-serif;;
+    font-size: 16px;
+    line-height: 35px;
+    font-weight: 700;
+    color: #00535e;
+}
+
+.precio{
+    color: #00535e;
+    font-size: 30px;
+    line-height: 39px;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+}
+
+.precio-emprendedor{
+    color: #00535e;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+}
+
+.descuento{
+    color: #58595f;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600
+}
+
+.info{
+    font-family: Roboto, sans-serif;
+    font-weight: 200;
+    line-height: 24px;
+    font-size: 15px;
+    color: #58595f;
+}
+
+.btn-plan{
+    border-radius: 10px;
+    margin: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    line-height: 49px;
+    font-size: 18px;
+    color: white;
+}
+
+.text-celeste{
+    color: rgb(68,209,234);
+}
+
+.text-verde{
+    color: #63bbad;
+}
+
+.text-azul{
+    color: #4a90e2;
+}
+
+.linea-celeste{
+    width: 100%;
+    height: 10px !important;
+    background-color: rgb(68,209,234) !important;
+}
+
+.linea-celeste-inclinada{
+    font-size: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    line-height: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 150px;
+    color: white;
+    position: absolute;
+    transform: rotate(-40deg);
+    top: 6%;
+    left: -10%;
+    background-color: rgb(68,209,234) !important;
+}
+
+.linea-verde{
+    width: 100%;
+    height: 10px !important;
+    background-color: #63bbad !important;
+}
+
+.linea-azul{
+    width: 100%;
+    height: 10px !important;
+    background-color: #4a90e2 !important;
+}
+
+.linea-gris{
+    width: 100%;
+    height: 10px !important;
+    background-color: #f9fafd !important;
+}
+
+.btn-celeste{
+    background-color: rgb(68,209,234) !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-verde{
+    background-color: #63bbad !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-azul{
+    background-color: #4a90e2 !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-gris{
+    background-color: #f5f7f8;
+    color: #00535e;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.card-emprendedor{
+    margin-left: -9px !important;
+}
+
+
+
+.pregunatas-container{
+    background-color: #f7f7f7;
+}
+
+.robo500{
+    margin: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    line-height: 45px;
+    font-size: 30px;
+    color: #00535e;
+}
+
+.robo400{
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    line-height: 30px;
+    font-size: 26px;
+    color: #00b19d;
+}
+
+.robo300{
+    margin: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 200;
+    line-height: 24px;
+    font-size: 15px;
+    color: #00535e;
+}
+
+.p-rigth{
+    padding-right: 12px;
+}
+
+.p-pla-rigth{
+    padding-right: 17px !important;
+}

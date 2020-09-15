@@ -32,7 +32,6 @@ export class WebsocketService {
       });
     }
 
-
     emit( evento: string, payload?: any, callback?: Function ) {
 
       console.log('Emitiendo', evento);
@@ -50,13 +49,14 @@ export class WebsocketService {
     (usuario-activo = true), de esta manera se hara un order by de los usuarios que estan activos 
     */
 
-   loginWS( nombre: string, id:string ,imgUrl:string,opc) {
+   loginWS( nombre: string, id:string ,imgUrl:string) {
 
-    console.log(imgUrl);
+    const opc = 'negocio';
 
     return new Promise(  (resolve, reject) => {
 
-      this.emit( 'configurar-usuario', { nombre,id,imgUrl,opc }, resp => {
+      this.emit( 'configurar-usuario', { nombre,id,imgUrl,opc}, resp => {
+        
         const res:any = resp;
         console.log(res);
         
@@ -70,25 +70,24 @@ export class WebsocketService {
 
   }
 
-    logoutWS() {
-      this.usuarioService.usuario = null;
-      localStorage.removeItem('usuario');
+  logoutWS() {
+    this.usuarioService.usuario = null;
+    localStorage.removeItem('usuario');
 
-      const payload = {
-        nombre: 'sin-nombre'
-      };
+    const payload = {
+      nombre: 'sin-nombre'
+    };
 
-      this.emit('configurar-usuario', payload, () => {} );
-      this.router.navigateByUrl('');
-
-    }
+    this.emit('configurar-usuario', payload, () => {} );
+    this.router.navigateByUrl('');
+  }
 
     configuararImgPerfil(pathImg){
       return new Promise(  (resolve, reject) => {
         const id = this.usuarioService.usuario.id;
         this.emit( 'configurar-ImgPerfil', { id, pathImg }, resp => {
 
-          this.usuarioService.usuario.imgUrl = pathImg;
+          this.usuarioService.usuario.imagen = pathImg;
           localStorage.setItem('usuario', JSON.stringify(this.usuarioService.usuario));
 
           resolve();
@@ -126,6 +125,10 @@ export class WebsocketService {
 
     emitirgetNegocios() {
       this.emit('obtener-negocios');
+    }
+
+    obtenerPedidos(){
+      return this.listen( 'obtener-cantidad-pedidos' );
     }
 
 }
